@@ -69,6 +69,7 @@ const ChatScreen = () => {
     navigation.setOptions({
       headerShown: true,
       headerTitleAlign: "left",
+
       headerTitle: () => (
         <View className="flex-row items-center space-x-2">
           <Avatar
@@ -133,7 +134,7 @@ const ChatScreen = () => {
               onSubmitEditing={sendMessage}
               value={input}
             />
-            <TouchableOpacity className="" onPress={sendMessage}>
+            <TouchableOpacity disabled={!input} className="" onPress={sendMessage}>
               <Ionicons name="send" size={20} color="#0037EC" />
             </TouchableOpacity>
           </View>

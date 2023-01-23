@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
-import { Button, Input, Image } from "react-native-elements";
+import { Input, Image } from "react-native-elements";
+import { Button } from "react-native-paper";
 import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/core";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
@@ -67,25 +68,23 @@ const LoginScreen = () => {
         />
       </View>
       <Button
-        containerStyle={styles.button}
+        textColor="white"
+        elevated
         onPress={login}
-        title="Login"
-        raised
-        buttonStyle={{ backgroundColor: "#0037EC", borderRadius: 10 }}
-      />
+        className="mt-8 w-72 bg-[#0037EC] rounded-lg py-1.5"
+      >
+        <Text className="text-base">Login</Text>
+      </Button>
       <Button
-        containerStyle={styles.button}
-        type="outline"
-        title="Register"
-        buttonStyle={{ borderColor: "#0037EC", borderRadius: 10 }}
-        titleStyle={{ color: "#0037EC" }}
+        mode="outlined"
+        style={{ borderColor: "#0037EC" }}
+        textColor="#0037EC"
+        className="rounded-lg w-72 mt-4 py-1"
         onPress={() => navigation.navigate("Register")}
-      />
+      >
+        <Text className="text-base">Register</Text>
+      </Button>
     </SafeAreaView>
   );
 };
 export default LoginScreen;
-
-const styles = StyleSheet.create({
-  button: { width: 200, marginTop: 10, borderRadius: 10 },
-});

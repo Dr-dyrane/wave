@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
-import { Button, Input } from "react-native-elements";
+import { Input } from "react-native-elements";
 import { useNavigation } from "@react-navigation/core";
 import { auth } from "../firebase";
+import { Button } from "react-native-paper";
 
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -82,16 +83,14 @@ const RegisterScreen = () => {
         />
       </View>
       <Button
-        containerStyle={styles.button}
-        raised
+        textColor="white"
+        elevated
         onPress={register}
-        title="Register"
-        buttonStyle={{ backgroundColor: "#0037EC" }}
-      />
+        className="mt-8 py-1 w-72 bg-[#0037EC] rounded-lg"
+      >
+        <Text className="text-base">Register</Text>
+      </Button>
     </View>
   );
 };
 export default RegisterScreen;
-const styles = StyleSheet.create({
-  button: { width: 200, marginTop: 10 },
-});
